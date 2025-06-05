@@ -125,7 +125,7 @@ footer {
 
 #containerreviews {
     min-height:40vh;
-    column-gap:50px;
+    column-gap:20px;
     background-color:#0e0c15;
     color:white;
     font-family:courier;
@@ -197,17 +197,15 @@ div.review{
 /*-------- Media Queries --------*/
 
 
-@media screen and (max-width:480px) {
-    #containercards {
+@media screen and (max-width:550px) {
+    #containercards, #containerreviews {
         padding-top:40px;
         display:grid;
+        row-gap:20px;;
         grid-template-rows: auto auto auto auto;
         grid-template-columns: auto;
     }
 
-    #containercards h2{
-        padding-bottom:40px;
-    }
  
     header {
         display:flex;
