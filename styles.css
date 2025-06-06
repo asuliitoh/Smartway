@@ -29,12 +29,11 @@ header {
     min-width:100vw; /*Definido para que el header siempre se muestre*/
     position:fixed; /*Definido para que el header siempre se muestre*/
     top:0;
-    min-height:5vh;
+    z-index:1; /*Usado para que, ante transformaciones de cards o reviews, el header siga sobreponiendose*/
     display:flex;
-    flex-direction:row;
     justify-content: space-between;
+    align-items:center;
     background-color:rgb(243, 243, 243);
-    border-bottom: 2px solid rgb(0, 0, 0); 
 }
 
 footer {
@@ -52,28 +51,49 @@ footer {
 
 #identidadempresa{
     display:flex;
-    align-items: center;
+    align-items:center;
 }
 
 #menunavegacion{
-    text-decoration:none;
+    
     display:flex;
-    align-items:center;
-    padding-right:1vw;
+    align-items:stretch; /*Para que los enlaces ocupe todo lo largo de la barra de navegación*/
+    text-align:center; /*Centrar el texto de los enlaces*/
+    padding-right:1vw; 
+}
+
+#menunavegacion ul {
+    list-style-type:none;
+    display:flex; /*Para que los enlaces se alineen horizontalmente*/
 }
 
 #menunavegacion li {
-    display:inline;
-    padding-right:1svw;
+    flex-grow:1;
 }
 
 #menunavegacion a {
+    margin:0;
+    display:block; /*Para que los enlaces sean bloques*/
     color:black;
+    padding:10px; 
     text-decoration:none;
 }
 
+#menunavegacion a:hover{
+    transition-duration: 0.5s;
+    background-color:black;
+    color:white;
+}
+
+
+@keyframes inicio {
+    from{opacity:0%;}
+    to{opacity:100%;}
+}
 
 #principal {
+
+    box-sizing:border-box;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -85,7 +105,10 @@ footer {
 }
 
 #principal div{
-    margin-bottom:2vh;
+    opacity:100%;
+    margin-bottom:1rem;
+    animation-name:inicio;
+    animation-duration:5s;
 }
 
 #titular{
@@ -98,20 +121,35 @@ footer {
 }
 
 #llamadadeaccion{
+    animation-name:inicio;
+    animation-duration:2s;
     font-size:1.5rem;
 }
 
-#containercards{
+#llamadadeaccion:hover{
+    transition-duration:0.5s;
+    color:white;
+    background-color:#0e0c15;
+    
+}
+
+#containercards, #containerreviews{
     padding-left:40px;
     padding-right:40px;
     padding-bottom:40px;
     background-color: black;
     color:white;
-    min-height:40vh;
+    min-height:20rem;
     display:grid;
     grid-template-rows: auto auto auto;
     grid-template-columns: auto auto auto;
     column-gap:20px;
+}
+
+#containerreviews {
+    background-color:#0e0c15;
+    font-family:courier;
+    text-align:center;
 }
 
 
@@ -123,23 +161,8 @@ footer {
     text-align:center;
 }
 
-#containerreviews {
-    min-height:40vh;
-    column-gap:20px;
-    background-color:#0e0c15;
-    color:white;
-    font-family:courier;
-    text-align:center;
-    display:grid;
-    padding-left:10px;
-    padding-right:10px;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-
-}
-
 #containerreviews h2{
-     font-family:courier;
+    font-family:courier;
     font-size:2rem;
     grid-column: 1 / -1;
     align-self:center;
@@ -165,6 +188,7 @@ footer {
 
 div.card {
     display:grid;
+    background-color:black;
     grid-template-rows: auto auto auto;
     grid-template-columns: auto auto auto;
     border:1px solid white;
@@ -185,15 +209,26 @@ div.card h3{
     font-family:courier;     
 }
 
+div.card:hover{
+    transition-duration:0.5s;
+    transform: perspective(100rem) translateZ(10rem);
+}
+
 div.review{
+    background-color:white;
+    color:black;
     display:grid;
     grid-template-rows: auto auto auto;
     grid-template-columns: auto auto auto;
-    border:2px solid white;
     border-radius:20px;
     padding:10px;
 }
 
+div.review:hover {
+    box-shadow: 5px 10px 10px rgba(255, 255, 255, 0.7);
+    transition-duration:0.5s;
+    transform: translateY(-3%);
+}
 /*-------- Media Queries --------*/
 
 
@@ -201,11 +236,10 @@ div.review{
     #containercards, #containerreviews {
         padding-top:40px;
         display:grid;
-        row-gap:20px;;
+        row-gap:20px;
         grid-template-rows: auto auto auto auto;
         grid-template-columns: auto;
     }
-
  
     header {
         display:flex;
