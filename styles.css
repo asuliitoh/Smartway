@@ -1,5 +1,35 @@
 
-/*Estilo definido para quitar margenes o padding puestos por el navegador*/
+/*--------Definición de variables globales--------*/
+
+:root{
+    --color_primario:rgb(243, 243, 243);
+    --color_texto: #000;
+    --color_secundario: #e3e3e3;
+    --color_terciario: #d5d5d5;
+}
+
+/*--------Definicion de la clase dark mode--------*/
+
+.darkmode{
+    --color_primario:#000 !important;
+    --color_texto: #fff !important;
+    --color_secundario: #2a2a2a !important;
+     --color_terciario: #1a1818 !important;
+}
+
+ /*Para el modo oscuro, se le aplica un filtro a las imágenes para que estén en color blanco*/
+footer.darkmode img, header.darkmode img {
+    filter: invert(83%) sepia(100%) saturate(0%) hue-rotate(1deg) brightness(108%) contrast(100%);
+}
+
+/*Hover para los índices en modo oscuro*/
+a.indice.darkmode:hover{
+    transition-duration: 0.5s;
+    background-color:white !important;
+    color:black !important;
+}
+
+/*--------Estilo definido para quitar margenes o padding puestos por el navegador--------*/
 * {
     margin:0;
     padding:0;
@@ -19,8 +49,8 @@ html,body{
     min-height:calc(100vh-16px);
 }
 
-body{
-    /*Definido para que el footer esté pegado al borde de la página*/
+/*Definido para que el footer esté pegado al borde de la página*/
+body{    
     display:flex;
     flex-direction:column;
 }
@@ -28,71 +58,74 @@ body{
 header {
     min-width:100vw; /*Definido para que el header siempre se muestre*/
     position:fixed; /*Definido para que el header siempre se muestre*/
-    top:0;
+    top:0; /*Definido para que el header se muestre arriba de la página*/
     z-index:1; /*Usado para que, ante transformaciones de cards o reviews, el header siga sobreponiendose*/
     display:flex;
     justify-content: space-between;
     align-items:center;
-    background-color:rgb(243, 243, 243);
+    color:var(--color_texto);
+    background-color:var(--color_primario);
 }
 
 footer {
     margin-top:auto; /*Definido para que el footer esté pegado al borde de la página*/ 
-    min-height:5vh;
+    min-height:5rem;
     display:flex;
+    gap:5px;
     justify-content:center;
     align-items:center;
-    background-color:rgb(243, 243, 243);
-    border-top: 2px solid rgb(0, 0, 0); 
+    background-color:var(--color_primario);
+}
 
+ /*Transición en la que al pasar por encima de una iamgen, esta se hace más grande*/
+footer img:hover, #switchtema:hover{
+    transform: perspective(100px) translateZ(30px);
+    transition-duration:100ms;
 }
 
 /*--------Estilo aplicado a elementos con identificador--------*/
 
+/*Logo y nombre de la empresa*/
 #identidadempresa{
     display:flex;
     align-items:center;
 }
 
+/*Índices de la página + switch de tema*/
 #menunavegacion{
-    
-    display:flex;
-    align-items:stretch; /*Para que los enlaces ocupe todo lo largo de la barra de navegación*/
+    align-items:center; /*Para que los enlaces ocupe todo lo largo de la barra de navegación*/
     text-align:center; /*Centrar el texto de los enlaces*/
-    padding-right:1vw; 
 }
 
+/*Switch de tema*/
+#switchtema {
+    width:20px;
+    height:20px;
+    display:block;
+    padding-right:10px;
+    cursor: pointer; /*Al pasar el cursor por la imagen, se muestra que es clickeable*/
+    
+}
+
+/*Índices de la página (lista)*/
 #menunavegacion ul {
+    display:flex;
     list-style-type:none;
     display:flex; /*Para que los enlaces se alineen horizontalmente*/
 }
 
+/*Cada índice de manera individual*/
 #menunavegacion li {
-    flex-grow:1;
+    display:flex; /*Se asigna flex para que se muestren de manera horizontal (row)*/
 }
 
-#menunavegacion a {
-    margin:0;
-    display:block; /*Para que los enlaces sean bloques*/
-    color:black;
-    padding:10px; 
-    text-decoration:none;
+/*Se le añade padding al último indice debido a la scroll bar*/
+#menunavegacion li:last-child a {
+    padding-right:2rem; 
 }
 
-#menunavegacion a:hover{
-    transition-duration: 0.5s;
-    background-color:black;
-    color:white;
-}
-
-
-@keyframes inicio {
-    from{opacity:0%;}
-    to{opacity:100%;}
-}
-
+/*Sección principal que se muestra al entrar a la página*/
 #principal {
-
     box-sizing:border-box;
     display:flex;
     flex-direction:column;
@@ -104,41 +137,33 @@ footer {
     background-size:cover;       
 }
 
-#principal div{
-    opacity:100%;
-    margin-bottom:1rem;
-    animation-name:inicio;
-    animation-duration:5s;
-}
-
+/*Titular: Mensaje de bienvenida a la página*/
 #titular{
     font-size:3rem;
     color:whitesmoke;
 }
+
+/*Descripción que acompaña al titular*/
 #descripcion{
     font-size:2rem; 
     color:whitesmoke;  
 }
 
+/*Botón que acompaña al titular y a la descripción*/
 #llamadadeaccion{
+    margin-top:1rem;
     animation-name:inicio;
-    animation-duration:2s;
+    animation-duration:500ms;
     font-size:1.5rem;
 }
 
-#llamadadeaccion:hover{
-    transition-duration:0.5s;
-    color:white;
-    background-color:#0e0c15;
-    
-}
-
+/*Contenedores tanto las cards como las reviews*/
 #containercards, #containerreviews{
     padding-left:40px;
     padding-right:40px;
     padding-bottom:40px;
-    background-color: black;
-    color:white;
+    background-color: var(--color_secundario);
+    color:var(--color_texto);
     min-height:20rem;
     display:grid;
     grid-template-rows: auto auto auto;
@@ -146,22 +171,15 @@ footer {
     column-gap:20px;
 }
 
+/*Propiedades específicas para el contenedor de reviews*/
 #containerreviews {
-    background-color:#0e0c15;
+    background-color:var(--color_terciario);
     font-family:courier;
     text-align:center;
 }
 
-
-#containercards h2{
-    font-family:courier;
-    font-size:2rem;
-    grid-column: 1 / -1;
-    align-self:center;
-    text-align:center;
-}
-
-#containerreviews h2{
+/*Títulos de las secciones de cards y reviews*/
+#containercards h2, #containerreviews h2{
     font-family:courier;
     font-size:2rem;
     grid-column: 1 / -1;
@@ -169,6 +187,7 @@ footer {
     text-align:center;
 }
 
+/*Definición de la persona que realiza la review*/
 #review_persona {
     grid-column: 1 / -1;
     display:flex;
@@ -177,30 +196,54 @@ footer {
     padding-bottom:1vh;
 }
 
+/*Estilo específico para la imagen de la persona que realiza la review*/
 #review_persona img {
     border-radius:50%;
     padding-right:10px;
 }
 
-
-
 /*--------Clases definidas--------*/
 
-div.card {
-    display:grid;
+/*Texto de los índices y la imagen switch tema*/
+a.indice,#switchtema {
+    align-self:stretch;
+    color:var(--color_texto);
+    padding:10px; 
+    text-decoration:none;
+}
+
+/*Hover aplicado a los índices en el modo claro*/
+a.indice:hover{
+    transition-duration: 0.5s;
     background-color:black;
+    color:white;
+}
+
+/*Definición de los estilos de las cards y reviews*/
+div.card, div.review {
+    display:grid;
+    background-color:var(--color_primario);
+    color:var(--color_texto);
     grid-template-rows: auto auto auto;
     grid-template-columns: auto auto auto;
-    border:1px solid white;
+    border:2px solid black;
+    padding:20px;
     border-radius:40px;
 }
 
+/*Propiedades específicas de una card*/
+div.review{
+    border-radius:20px;
+}
+
+/*Alineación centrada del párrafo de una card*/
 div.card p {
     grid-row-start:2;
     text-align:center;
     font-family:courier;
 }
 
+/*El titular de una card se define para que este centrada horizontalmente, en el superior de la card*/
 div.card h3{
     grid-column: 1 / -1;
     align-self: center;
@@ -209,28 +252,20 @@ div.card h3{
     font-family:courier;     
 }
 
+/*Hover aplicado a una card*/
 div.card:hover{
-    transition-duration:0.5s;
+    transition-duration:300ms;
     transform: perspective(100rem) translateZ(10rem);
 }
 
-div.review{
-    background-color:white;
-    color:black;
-    display:grid;
-    grid-template-rows: auto auto auto;
-    grid-template-columns: auto auto auto;
-    border-radius:20px;
-    padding:10px;
-}
-
+/*Hover aplicado a una review*/
 div.review:hover {
     box-shadow: 5px 10px 10px rgba(255, 255, 255, 0.7);
-    transition-duration:0.5s;
+    transition-duration:200ms;
     transform: translateY(-3%);
 }
-/*-------- Media Queries --------*/
 
+/*-------- Media Queries --------*/
 
 @media screen and (max-width:550px) {
     #containercards, #containerreviews {
