@@ -57,7 +57,7 @@ body{
 
 header {
     min-width:100vw; /*Definido para que el header siempre se muestre*/
-    position:fixed; /*Definido para que el header siempre se muestre*/
+    position:sticky; /*Definido para que el header siempre se muestre*/
     top:0; /*Definido para que el header se muestre arriba de la página*/
     z-index:1; /*Usado para que, ante transformaciones de cards o reviews, el header siga sobreponiendose*/
     display:flex;
@@ -93,7 +93,6 @@ footer img:hover, #switchtema:hover{
 
 /*Índices de la página + switch de tema*/
 #menunavegacion{
-    align-items:center; /*Para que los enlaces ocupe todo lo largo de la barra de navegación*/
     text-align:center; /*Centrar el texto de los enlaces*/
 }
 
@@ -109,7 +108,6 @@ footer img:hover, #switchtema:hover{
 
 /*Índices de la página (lista)*/
 #menunavegacion ul {
-    display:flex;
     list-style-type:none;
     display:flex; /*Para que los enlaces se alineen horizontalmente*/
 }

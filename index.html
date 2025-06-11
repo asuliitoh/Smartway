@@ -4,50 +4,59 @@
     lo que se define aqui no se muestra en la página.-->
     <head>
         <title> CiberPulse Labs</title>
-        <link rel="stylesheet" href="styles.css">
+        <!--<link rel="stylesheet" href="styles.css">-->
         <link rel="icon" type="image/x-icon" href="images/favicon.ico">
         <meta charset="utf-8">
         <!--Viewport nos permite establecer la area visible de una página
         según el dispositivo en el que se visualice.-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="darkmode.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> <!--Uso de Tailwind CSS-->
+        <script src="https://cdn.jsdelivr.net/npm/daisyui@^2/dist/full.js"></script> <!-- Uso de Daisy UI-->
+
     </head>
 
-    <body>
-
-
+    <body class="m-0 t-0 flex flex-col h-screen">
+  
          <!--Header debe contener un logotipo y un menú de navegación
     a cada una de las secciones a definir (como si fuera un indice)-->
-        <header id="barraprincipal">     
-            <div id="identidadempresa">
-                <div id="logotipoempresa"><img id="logo"src="images/favicons/favicon.ico" alt="Logotipo de CiberPulse Labs" ></div>
-                <div id="nombreempresa"><h2>CiberPulse Labs</h2></div>
+
+        
+
+        <header class="min-w-screen bg-transparent backdrop-blur-xs flex flex-wrap items-start justify-between fixed top-0 z-1" id="barraprincipal">     
+            <div class="flex items-center " id="identidadempresa">
+                <div id="logotipoempresa"><img class="w-10 h-10" id="logo"src="images/favicons/favicon.ico" alt="Logotipo de CiberPulse Labs" ></div>
+                <div class="text-[1rem] font-bold" id="nombreempresa"><h2>CiberPulse Labs</h2></div>
             </div>
 
-            <nav id="menunavegacion">      
-                <ul>
-                <li><a><img id="switchtema" src="/images/icon_themes/sun.png" alt="Botón cambiar tema"></a></li>
-                <li><a id="inicio"    href="#inicio" class="indice">Inicio</a></li>
-                <li><a id="nosotros"  href="#nosotros" class="indice">Sobre Nosotros</a></li>
-                <li><a id="servicios" href="#servicios" class="indice">Servicios</a></li>
+            <nav class="text-center" id="menunavegacion">      
+                <ul class="flex items-center list-none" role="list">
+                <li class="flex "><a><img class="p-[10px] self-stretch block w-10 h-10 cursor-pointer" id="switchtema" src="/images/icon_themes/sun.png" alt="Botón cambiar tema"></a></li>
+                <li class="flex"><a class="hover:bg-sky-100 hover:text-blue-500 rounded-xl font-medium self-stretch p-[10px] no-underline" id="inicio" href="#inicio" ">Inicio</a></li>
+                <li class="flex"><a class="hover:bg-sky-100 hover:text-blue-500 rounded-xl font-medium self-stretch p-[10px] no-underline" id="nosotros" href="#nosotros" >Sobre Nosotros</a></li>
+                <li class="flex"><a class="hover:bg-sky-100 hover:text-blue-500 rounded-xl font-medium pr-10 self-stretch p-[10px] no-underline" id="servicios" href="#servicios" >Servicios</a></li>
                 </ul>
             </nav>
         </header>
-        
-        <main>
-            <section id="principal">
-                <div>
-                    <h1 id="titular">¡Bienvenidos a Ciberpulse Labs!</h2>
-                    <p id="descripcion">Somos la agencia número 1 mundial de inteligencia digital.</p>
+
+        <main class="grid auto-rows-4 grid-cols-2 justify-center items-center text-center">
+            <section class="min-h-screen self-center pl-10 row-start-1 col-span-full flex flex-row justify-between" id="principal">
+                <div class="border border-gray-300 pl-20 pr-20 pt-40 pb-40 rounded-2xl self-center ">
+                    <h1 class="mb-5 font-extrabold justify-self-center tracking-tight leading-none text-2xl sm:text-4xl xl:text-7xl" id="titular">¡Bienvenidos a <span class=" text-transparent bg-gradient-to-b from-[#06b6d4] via-[#2563eb] to-[#6366f1] bg-clip-text">Ciberpulse Labs</span>!</h2>
+                    <p class="font-normal text-gray-500 text-sm sm:text-base xl:text-lg" id="descripcion">Somos la agencia número 1 mundial de inteligencia digital.</p>
+                    <button type="button" class="text-gray-900 bg-white hover:bg-sky-100 hover:text-blue-500 hover:border-blue-300 border-2 border-gray-300 focus:outline-none mt-[1rem] font-medium text-sm sm:text-base xl:text-lg rounded-xl p-2">¡Conoce nuestros servicios!</button>
                 </div>
-                <button id="llamadadeaccion" type="button">¡Conoce nuestros servicios!</button>
+                <img class="justify-self-center self-center w-64 h-64 sm:w-80 sm:h-80 md:w-100 md:h-100 xl:w-156 xl:h-156 p-10" src="/images/imagenbienvenida.jpg" alt="Imagen bienvenida">
+                
             </section>
 
-            <section id="containercards"> 
-                <h2>¡Calidad en las soluciones garantizada!</h2>   
-                <div class="card">
-                    <h3>Monitoreo</h3>
-                    <p> Implementamos sistemas de monitoreo inteligente que no solo recogen
+    
+
+            <section class="pt-10 pl-10 pr-10 pb-20  row-start-2 bg-neutral-50 w-screen grid grid-cols-3 auto-rows-2 col-span-3 gap-x-[20px]" id="containercards"> 
+                <h2 class="ml-10 mb-20 font-bold tracking-tight leading-none sm:text-lg lg:text-xl xl:text-4xl row-start-1 col-span-full justify-self-start ">Nuestras soluciones no son las más destacadas por simple casualidad:</h2>   
+                <div class="pt-10 pl-10 pr-5 pb-5 row-start-2 col-start-1 grid bg-white auto-rows-2 auto-cols-3 rounded-[20px] border border-gray-300 ">
+                    <h3 class="font-semibold text-2xl col-span-full text-left pb-2">Monitoreo</h3>
+                    <p class="text-gray-700 text-sm col-span-full text-left row-start-2"> Implementamos sistemas de monitoreo inteligente que no solo recogen
                     datos en tiempo real, sino que los interpretan con lógica contextual
                     gracias a la inteligencia artificial. Esto nos permite detectar anomalías
                     , anticipar fallos y optimizar recursos de forma proactiva. Nuestro enfoque
@@ -56,9 +65,9 @@
                     </p>
                 </div>
             
-                <div class="card">
-                    <h3>Análisis</h3>
-                    <p> El análisis de datos es el corazón de nuestra inteligencia digital. Utilizamos técnicas
+                <div class="pt-10 pl-10 pr-5 pb-5 row-start-2 col-start-2 grid bg-white auto-rows-2 auto-cols-3 rounded-[20px] border border-gray-300">
+                    <h3 class="font-semibold text-2xl col-span-full text-left pb-2"">Análisis</h3>
+                    <p class="text-gray-700 text-sm w-full h-full col-span-full row-start-2 text-left"> El análisis de datos es el corazón de nuestra inteligencia digital. Utilizamos técnicas
                     de minería de datos, procesamiento de lenguaje natural y modelos de aprendizaje profundo
                     para extraer patrones significativos a partir de grandes volúmenes de información. Esto
                     nos permite descubrir oportunidades ocultas, optimizar procesos internos y generar conocimiento
@@ -66,9 +75,9 @@
                     </p>
                 </div>
             
-                <div class="card">
-                    <h3>Respuesta</h3>
-                    <p> Nuestra capacidad de respuesta se potencia con sistemas inteligentes capaces
+                <div class="pt-10 pl-10 pr-5 pb-5 row-start-2 col-start-3 grid bg-white auto-rows-2 auto-cols-3  rounded-[20px] border border-gray-300">
+                    <h3 class="font-semibold text-2xl col-span-full text-left pb-2">Respuesta</h3>
+                    <p class="text-gray-700 text-sm w-full h-full col-span-full row-span-2 text-left"> Nuestra capacidad de respuesta se potencia con sistemas inteligentes capaces
                     de adaptarse al contexto y evolucionar con cada interacción. Automatizamos
                     respuestas mediante agentes conversacionales, sistemas de recomendación y workflows
                     dinámicos que se ajustan en tiempo real. Así, garantizamos intervenciones rápidas,
@@ -77,50 +86,58 @@
                     </p>
                 </div>       
             </section>
-            </main>
+            
 
-            <section id="containerreviews">
-                <h2>Los mejores del sector confían en nosotros </h2>
-                <div class="review">
-                    <div id="review_persona">
-                        <img id="review_foto" src="/images/avatars/girl.png" alt="Laura Villanueva">
-                        <h3 id="review>nombre">Laura Villanueva</h3>
+            <section class="pl-10 pt-10 row-start-3 col-span-full flex flex-row items-start justify-between" id="containerreviews">
+                <div class="flex flex-col  pb-10" id="informacionreviews">
+                    <h2 class="self-start  font-bold text-2xl mb-10">Los mejores del sector confían en nosotros </h2>
+                    <p class="text-left">Con más de 10 años de experencia, hemos ofrecido soluciones innovadoras a los profesionales del sector más influyentes. Con un total de más de 145.000 clientes<br>
+                        han visto satisfechos sus requisitos y necesidades. <br> <span>¡A que esperas para ser uno de ellos!</span>
+                    </p>
+                </div>
+                
+                <!--
+                <div class="ml-20 row-start-2 col-start-1 bg-white grid auto-rows-2 grid-cols-3 rounded-[40px] p-10 border border-gray-300">
+                    <div class="col-span-full flex flex-row justify-start items-center" id="review_persona">
+                        <img class="w-[32px] h-[32px] mr-[16px]" id="review_foto" src="/images/avatars/girl.png" alt="Laura Villanueva">
+                        <h3 id="reviewnnombre">Laura Villanueva</h3>
                     </div>
-                    <p id="review_comentario">"Si la inteligencia digital tuviera un Olimpo, 
+                    <p class="p-5 row-start-2 col-span-full self-center text-center" id="review_comentario">"Si la inteligencia digital tuviera un Olimpo, 
                         esta organización sería Zeus.Entramos con un caos de datos y salimos
                         con dashboards que hasta mi abuelaentiende. ¡Top 1 sin discusión!"</p>
                 </div>
 
-                <div class="review">
-                    <div id="review_persona">
-                        <img id="review_foto" src="/images/avatars/man.png" alt="Samuel de Luque">
-                        <h3 id="review>nombre">Samuel de Luque</h3>
+                <div class="row-start-2 col-start-2 bg-white grid auto-rows-2 grid-cols-3 rounded-[40px] p-10 border border-gray-300">
+                    <div class="col-span-full flex flex-row items-center justify-start" id="review_persona">
+                        <img class="w-[32px] h-[32px] mr-[16px]" id="review_foto" src="/images/avatars/man.png" alt="Samuel de Luque">
+                        <h3 id="reviewnnombre">Samuel de Luque</h3>
                     </div>
-                    <p id="review_comentario">"Lo mejor: su modelo predictivo clavó nuestras
+                    <p class="p-5 row-start-2 col-span-full self-center text-center" id="review_comentario">"Lo mejor: su modelo predictivo clavó nuestras
                          métricas a seis meses.<br>
-                         Lo mejorable: tardaron un pelín en la entrega final, pero valió cada
-    minuto."</p>
+                         Lo mejorable: tardaron un pelín en la entrega final, pero valió cada minuto."</p>
                 </div>
-
-                <div class="review">
-                    <div id="review_persona">
-                        <img id="review_foto" src="/images/avatars/profile.png" alt="Guillermo Diaz">
-                        <h3 id="review>nombre">Guillermo Diaz</h3>
+                -->
+                <div class="self-start mb-40 mr-20 bg-white grid auto-rows-2 grid-cols-3 p-10 rounded-[40px] border border-gray-300">
+                    <div class="col-span-full flex flex-row justify-start items-center" id="review_persona">
+                        <img class="w-[32px] h-[32px] mr-[16px]" id="review_foto" src="/images/avatars/profile.png" alt="Guillermo Diaz">
+                        <h3 class="" id="reviewnombre">Guillermo Diaz</h3>
                     </div>
-                    <p id="review_comentario">"Pasamos de tener “datos bonitos” a decisiones 
+                    <p class="p-5 row-start-2 col-span-full self-center text-center" id="review_comentario">"Pasamos de tener “datos bonitos” a decisiones 
                         accionables.Súper transparentes con la metodología y cero humo técnico"</p>
                 </div>
 
             </section>
 
+            
 
 
-       <footer id="footer">
-            <a href="mailto:info@smartwaystudio.com" target="_blank"><img class="socialmedia" id="email" src="/images/socialmedia_icons/email.png", alt="Icono Email"></a>
-            <a href="https://www.facebook.com/SmartWayStudio/" target="_blanK"><img class="socialmedia" id="facebook" src="/images/socialmedia_icons/facebook.png", alt="Icono Facebook"></a>
-            <a href="https://www.linkedin.com/company/smartway-studio/" target="_blank"><img class="socialmedia" id="linkedin" src="/images/socialmedia_icons/linkedin.png", alt="Icono LinkedIn"></a>
-            <a href="https://maps.app.goo.gl/eE3xwc5LchXdfH5r5" target="_blank"><img class="socialmedia" id="location" src="/images/socialmedia_icons/location.png", alt="Icono Ubicación"></a>
-            <a href="https://x.com/prestanitro" target="_blank"><img class="socialmedia" id="twitter" src="/images/socialmedia_icons/twitter.png", alt="Icono Twitter"></a>    
+       <footer class="mt-10 border-t border-gray-300 row-start-4 col-span-full bg-transparent backdrop-blur-xs flex gap-[5px] min-h-[5rem] justify-center items-center backdrop-blur-lg" id="footer">
+                <a href="mailto:info@smartwaystudio.com" target="_blank"><img class="w-[32px] h-[32px]" id="email" src="/images/socialmedia_icons/email.png", alt="Icono Email"></a>
+                <a href="https://www.facebook.com/SmartWayStudio/" target="_blanK"><img class="w-[32px] h-[32px]" id="facebook" src="/images/socialmedia_icons/facebook.png", alt="Icono Facebook"></a>
+                <a href="https://www.linkedin.com/company/smartway-studio/" target="_blank"><img class="w-[32px] h-[32px]" id="linkedin" src="/images/socialmedia_icons/linkedin.png", alt="Icono LinkedIn"></a>
+                <a href="https://maps.app.goo.gl/eE3xwc5LchXdfH5r5" target="_blank"><img class="w-[32px] h-[32px]" id="location" src="/images/socialmedia_icons/location.png", alt="Icono Ubicación"></a>
+                <a href="https://x.com/prestanitro" target="_blank"><img class="w-[32px] h-[32px]" id="twitter" src="/images/socialmedia_icons/twitter.png", alt="Icono Twitter"></a>    
         </footer>  
+        </main>
     </body>
 </html>
