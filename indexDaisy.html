@@ -19,7 +19,35 @@
         </style>
     </head>
 
-    <body class="min-w-[100vw-16px] min-h-[100vh-16px] flex flex-col h-screen dark:bg-gray-950">
+    <div class="modal" role="dialog" id="iniciosesion">
+
+        <div class="modal-box card">
+
+            <h3 class="card-title text-xl font-semibold">Iniciar sesión</h3>
+            
+            <div class="card-body">
+                <fieldset class="fieldset">
+                    <label class="label">Correo electrónico</label>  
+                    <input type="email" class="input" placeholder="Correo electrónico"/>
+                    <label class="label">Contraseña</label>  
+                    <input type="email" class="input" placeholder="Contraseña"/>
+                </fieldset>
+            </div> 
+
+            <div class="modal_action text-center">
+            
+                <div class="card-actions flex justify-center">
+                    <a class="btn btn-primary">Iniciar sesión</a>
+                    <a href="#" class="btn btn-primary"">Cancelar</a>
+                </div>
+               </div> 
+               
+            </div>
+        </div>
+
+    </div>
+
+    <body data-theme="light" class="min-w-[100vw-16px] min-h-[100vh-16px] flex flex-col h-screen dark:bg-gray-950">
   
          <!--Header debe contener un logotipo y un menú de navegación
     a cada una de las secciones a definir (como si fuera un indice)-->
@@ -33,6 +61,7 @@
             <nav class="text-center" id="menunavegacion">      
                 <ul class="flex items-center list-none" role="list">
                 <li class="flex "><a><img class="p-[10px] self-stretch block w-10 h-10 cursor-pointer" id="switchtema" src="/images/icon_themes/sun.png" alt="Botón cambiar tema"></a></li>
+                <li class="flex"><a class="rounded-xl font-medium self-stretch p-[10px] no-underline hover:bg-sky-100 hover:text-blue-500 dark:hover:bg-sky-950" id="inicio" href="#iniciosesion" ">Iniciar sesión</a></li>
                 <li class="flex"><a class="rounded-xl font-medium self-stretch p-[10px] no-underline hover:bg-sky-100 hover:text-blue-500 dark:hover:bg-sky-950" id="inicio" href="#inicio" ">Inicio</a></li>
                 <li class="flex"><a class="rounded-xl font-medium self-stretch p-[10px] no-underline hover:bg-sky-100 hover:text-blue-500 dark:hover:bg-sky-950" id="nosotros" href="#nosotros" >Sobre Nosotros</a></li>
                 <li class="flex"><a class="rounded-xl font-medium self-stretch p-[10px] no-underline hover:bg-sky-100 hover:text-blue-500 dark:hover:bg-sky-950" id="servicios" href="#servicios" >Servicios</a></li>
@@ -45,8 +74,17 @@
             <section class="min-h-screen self-center sm:pl-10 row-start-1 col-span-full flex flex-col sm:flex-row justify-center sm:justify-between dark:text-white" id="principal">
                 <div class="pl-0 lg:pl-5 justify-self-center rounded-2xl self-center ">
                     <h1 class="mb-5 font-extrabold justify-self-center tracking-tight leading-none text-2xl sm:text-4xl xl:text-7xl" id="titular">¡Bienvenidos a <span class=" text-transparent bg-gradient-to-b from-[#06b6d4] via-[#2563eb] to-[#6366f1] bg-clip-text">Ciberpulse Labs</span>!</h2>
-                    <p class="font-normal text-gray-500 dark:text-gray-100 text-sm sm:text-base xl:text-lg" id="descripcion">Somos la agencia <strong>número 1</strong> mundial de inteligencia digital.</p>
-                    <button type="button" class="text-gray-900 bg-white hover:bg-sky-100 hover:text-blue-500 dark:text-white dark:bg-sky-800 dark:border-sky-500 dark:hover:bg-sky-950 hover:border-blue-300 border-2 border-gray-300 focus:outline-none mt-[1rem] font-medium text-sm sm:text-base xl:text-lg rounded-xl p-2">¡Conoce nuestros servicios!</button>
+                    <p class="mb-5 font-normal text-gray-500 dark:text-gray-100 text-sm sm:text-base xl:text-lg" id="descripcion">Somos la agencia <strong>número 1</strong> mundial de inteligencia digital.</p>
+                    <button type="button" class="btn btn-primary" onclick="ventanaentrante.showModal()">¡Conoce nuestros servicios!</button>
+                    <dialog id="ventanaentrante" class="modal">
+                        <div class="modal-box">
+                            <form method="dialog">
+                                <button class="btn btn-ghost btn-xs btn-circle absolute right-2 top-2">X</button>
+                            </form>
+                            <h2 class="text-lg font-semibold">¡Oh vaya!</h2>
+                            <p class="">¡Nos has pillado! En realidad estamos empezando, pero no se lo digas a nadie...</p>
+                        </div>
+                    </dialog>
                 </div>
                 <img class="self-center w-64 h-64 sm:w-80 sm:h-80 md:w-100 md:h-100 xl:w-156 xl:h-156 p-10" src="/images/imagenbienvenida.png" alt="Imagen bienvenida">
                 
@@ -62,36 +100,46 @@
                     con cada interacción. De este modo, ayudamos a las organizaciones a reducir riesgos, optimizar recursos
                     y garantizar experiencias memorables para sus usuarios. En definitiva, nuestras soluciones destacan
                     porque unen proactividad, conocimiento profundo y agilidad operativa en un único flujo continuo de valor.</p>
-                <div class="pt-10 pl-10 pr-5 pb-5 row-start-3 sm:col-start-1 grid auto-rows-2 auto-cols-3 rounded-2xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
-                    <h3 class="font-semibold text-2xl col-span-full text-left pb-2">Monitoreo</h3>
-                    <p class="text-xs base:text-sm lg:text-base col-span-full text-left row-start-2 text-gray-700 dark:text-gray-100"> Implementamos sistemas de monitoreo inteligente que no solo recogen
-                    datos en tiempo real, sino que los interpretan con lógica contextual
-                    gracias a la inteligencia artificial. Esto nos permite detectar anomalías
-                    , anticipar fallos y optimizar recursos de forma proactiva. Nuestro enfoque
-                    va más allá de observar: usamos analítica avanzada para traducir la información
-                    en acciones, reduciendo riesgos y mejorando la toma de decisiones estratégicas.
-                    </p>
+                
+                    <div class="card image-full">
+                        <figure><img src="/images/cards/monitoreo.jpg" alt="Imagen Monitoreo"></figure>    
+                        <div class="card-body">
+                            <h3 class="card-title text-2xl">Monitoreo</h3>
+                            <p class="text-left">Implementamos sistemas de monitoreo inteligente que no solo recogen
+                            datos en tiempo real, sino que los interpretan con lógica contextual
+                            gracias a la inteligencia artificial. Esto nos permite detectar anomalías
+                            , anticipar fallos y optimizar recursos de forma proactiva. Nuestro enfoque
+                            va más allá de observar: usamos analítica avanzada para traducir la información
+                            en acciones, reduciendo riesgos y mejorando la toma de decisiones estratégicas.
+                            </p>
+                        </div>
                 </div>
             
-                <div class="pt-10 pl-10 pr-5 pb-5 row-start-4 sm:row-start-3 sm:col-start-2 grid auto-rows-2 auto-cols-3 rounded-2xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
-                    <h3 class="font-semibold text-2xl col-span-full text-left pb-2"">Análisis</h3>
-                    <p class="text-xs base:text-sm lg:text-base  w-full h-full col-span-full row-start-2 text-left text-gray-700 dark:text-gray-100"> El análisis de datos es el corazón de nuestra inteligencia digital. Utilizamos técnicas
-                    de minería de datos, procesamiento de lenguaje natural y modelos de aprendizaje profundo
-                    para extraer patrones significativos a partir de grandes volúmenes de información. Esto
-                    nos permite descubrir oportunidades ocultas, optimizar procesos internos y generar conocimiento
-                    accionable que impulsa la innovación y la mejora constante en todos los niveles operativos.
-                    </p>
+                <div class="card image-full">
+                    <figure><img src="/images/cards/analisis.jpg" alt="Imagen Análisis"></figure>    
+                    <div class="card-body">
+                        <h3 class="card-title text-2xl">Análisis</h3>
+                        <p class="text-left"> El análisis de datos es el corazón de nuestra inteligencia digital. Utilizamos técnicas
+                        de minería de datos, procesamiento de lenguaje natural y modelos de aprendizaje profundo
+                        para extraer patrones significativos a partir de grandes volúmenes de información. Esto
+                        nos permite descubrir oportunidades ocultas, optimizar procesos internos y generar conocimiento
+                        accionable que impulsa la innovación y la mejora constante en todos los niveles operativos.
+                        </p>
+                    </div>            
                 </div>
             
-                <div class="pt-10 pl-10 pr-5 pb-5 row-start-5 sm:row-start-3 sm:col-start-3 grid auto-rows-2 auto-cols-3 rounded-2xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black">
-                    <h3 class="font-semibold text-2xl col-span-full text-left pb-2">Respuesta</h3>
-                    <p class="text-xs base:text-sm lg:text-base w-full h-full col-span-full row-span-2 text-left text-gray-700 dark:text-gray-100"> Nuestra capacidad de respuesta se potencia con sistemas inteligentes capaces
-                    de adaptarse al contexto y evolucionar con cada interacción. Automatizamos
-                    respuestas mediante agentes conversacionales, sistemas de recomendación y workflows
-                    dinámicos que se ajustan en tiempo real. Así, garantizamos intervenciones rápidas,
-                    relevantes y personalizadas que maximizan la experiencia del usuario y la eficiencia
-                    operativa.
-                    </p>
+                <div class="card image-full">
+                    <figure><img src="/images/cards/respuesta.jpg" alt="Imagen Respuesta"></figure> 
+                    <div class="card-body">
+                        <h3 class="card-title text-2xl">Respuesta</h3>
+                        <p class="text-left">Nuestra capacidad de respuesta se potencia con sistemas inteligentes capaces
+                        de adaptarse al contexto y evolucionar con cada interacción. Automatizamos
+                        respuestas mediante agentes conversacionales, sistemas de recomendación y workflows
+                        dinámicos que se ajustan en tiempo real. Así, garantizamos intervenciones rápidas,
+                        relevantes y personalizadas que maximizan la experiencia del usuario y la eficiencia
+                        operativa.
+                        </p>
+                    </div>
                 </div>       
             </section>
             
@@ -105,13 +153,53 @@
                         A través de sus palabras descubrirás el impacto real y sostenible de nuestra inteligencia digital.</p>
             </section>
 
-            <section class="pb-5 sm:pb-0 m-10 justify-self-stretch row-start-4 sm:row-start-3 sm:col-start-2 " id="containerreviews">
+            <section class="carousel pl-10 pr-10 rounded-box items-center row-start-4 sm:row-start-3 sm:col-start-2 " id="containerreviews">
                 
-                <div class=" p-5 grid grid-rows-2 grid-cols-3 justify-center items-center rounded-4xl border border-gray-300 dark:bg-gray-800 dark:border-gray-600">
-                    <div class="col-span-full flex flex-row justify-between items-center" id="review_persona">
+                <div class="card pl-5 pt-5 carousel-item mx-auto border-2 dark:bg-gray-800 dark:border-gray-600">
+                    <div class="card-title justify-stretch" id="review_persona">
+                            <div class="flex flew-row items-center">
+                                <img class="w-[32px] h-[32px] mr-[16px]" id="review_foto" src="/images/avatars/profile.png" alt="Guillermo Diaz">
+                                <h3 class="text-xs base:text-sm lg:text-base font-medium dark:text-white" id="reviewnombre">Guillermo Diaz</h3>
+                            </div>
+                            <p class="justify-end text-xs lg:text-base text-gray-500 dark:text-gray-300">5 de agosto de 2024</p>
+                    
+                    </div>
+                    
+                    <div class="card_body">
+
+                        <p class="text-xs base:text-sm lg:text-base pt-5 row-start-2 col-span-full self-center text-left text-gray-700 dark:text-gray-100" id="review_comentario">Pasamos de tener “datos bonitos” a decisiones 
+                        accionables.<br>Súper transparentes con la metodología y cero humo técnico</p>
+
+                    </div>
+                    
+                    
+                </div>
+
+                <div class="card carousel-item mx-auto border-2 dark:bg-gray-800 dark:border-gray-600">
+                    
+                    
+                    <div class="card-title" id="review_persona">
+                        <div class="flex flew-row items-center">
+                            <img class="w-[32px] h-[32px] mr-[16px]" id="review_foto" src="/images/avatars/profile.png" alt="Guillermo Diaz">
+                            <h3 class="text-xs base:text-sm lg:text-base font-medium dark:text-white" id="reviewnombre">Samuel de Luque</h3>
+                        </div>
+                        <p class="text-xs lg:text-base text-gray-500 dark:text-gray-300">5 de agosto de 2024</p>
+                    </div>
+
+                        <div class="card-body">
+                            <p class="text-xs base:text-sm lg:text-base pt-5 row-start-2 col-span-full self-center text-left text-gray-700 dark:text-gray-100" id="review_comentario">Pasamos de tener “datos bonitos” a decisiones 
+                            accionables.<br>Súper transparentes con la metodología y cero humo técnico</p>
+                        </div>
+                    
+                </div>
+
+                
+                <div class="card carousel-item mx-auto p-5 border-2 dark:bg-gray-800 dark:border-gray-600">
+
+                    <div class="card-title" id="review_persona">
                         <div class="flex flew-row justify-between items-center">
                             <img class="w-[32px] h-[32px] mr-[16px]" id="review_foto" src="/images/avatars/profile.png" alt="Guillermo Diaz">
-                            <h3 class="text-xs base:text-sm lg:text-base font-medium dark:text-white" id="reviewnombre">Guillermo Diaz</h3>
+                            <h3 class="text-xs base:text-sm lg:text-base font-medium dark:text-white" id="reviewnombre">Ibai Llanos</h3>
                         </div>
                         <p class="text-xs lg:text-base text-gray-500 dark:text-gray-300">5 de agosto de 2024</p>
                     </div>
@@ -122,15 +210,23 @@
             </section>
 
             
+            <footer class="row-start 5 col-span-full sm:row-start-4 justify-center footer footer-center join">
+               <aside class= "dark:text-gray-300 join-item items-center pr-5">
+                    <p>Copyright © 2025 - All right reserved</p>
+               </aside> 
 
-
-       <footer class="pl-10 pr-10 row-start-5 sm:row-start-4 col-span-full bg-transparent flex gap-[5px] min-h-[5rem] justify-center items-center backdrop-blur-lg border-t border-gray-300 dark:border-gray-800 dark:bg-gray-950" id="footer">
+                <div class="join-item grid-flow-col gap-4 ">
                 <a href="mailto:info@smartwaystudio.com" target="_blank"><img class="w-[32px] h-[32px] dark:invert" id="email" src="/images/socialmedia_icons/email.png", alt="Icono Email"></a>
                 <a href="https://www.facebook.com/SmartWayStudio/" target="_blanK"><img class="w-[32px] h-[32px] dark:invert" id="facebook" src="/images/socialmedia_icons/facebook.png", alt="Icono Facebook"></a>
                 <a href="https://www.linkedin.com/company/smartway-studio/" target="_blank"><img class="w-[32px] h-[32px] dark:invert" id="linkedin" src="/images/socialmedia_icons/linkedin.png", alt="Icono LinkedIn"></a>
                 <a href="https://maps.app.goo.gl/eE3xwc5LchXdfH5r5" target="_blank"><img class="w-[32px] h-[32px] dark:invert" id="location" src="/images/socialmedia_icons/location.png", alt="Icono Ubicación"></a>
                 <a href="https://x.com/prestanitro" target="_blank"><img class="w-[32px] h-[32px] dark:invert" id="twitter" src="/images/socialmedia_icons/twitter.png", alt="Icono Twitter"></a>    
-        </footer>  
+            </div>
+       
+
+            </footer>
+
+       
         </main>
     </body>
 </html>

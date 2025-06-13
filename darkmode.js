@@ -5,13 +5,13 @@ const switchTema = document.getElementById('switchtema');
 function establecerModoClaro() {
     document.body.classList.remove("dark");
     localStorage.setItem("color-theme", "light");
-    switchTema.src="/images/icon_themes/sun.png";
+    switchTema.src="/images/icons/sun.png";
 }
 
 function establecerModoOscuro() {
     document.body.classList.add("dark");
     localStorage.setItem("color-theme", "dark");
-    switchTema.src="/images/icon_themes/moon.png";
+    switchTema.src="/images/icons/moon.png";
 }
 
 //Apliacción de tema al cargar la página.
