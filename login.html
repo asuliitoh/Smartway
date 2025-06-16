@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html len="es">
+
+     <head>
+        <title> CiberPulse Labs</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+        <link href="/stylesdaisy.css" rel="stylesheet" type="text/css">
+        <script src="/scripts/header.js" type="text/javascript" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <style type="text/tailwindcss">      
+            @custom-variant dark (&:where(.dark, .dark *));
+        </style>
+    </head>
+
+    <body data-theme="light" class="min-w-[100vw-16px] min-h-[100vh-16px] grid auto-rows-3 h-screen bg-base-300 dark:bg-gray-950"></body>
+        <header id="header"></header>
+
+        <main class="justify-self-center">
+            
+            <section id="login" class="grid gap-y-10 auto-rows-2 auto-cols-1 p-10 min-w-[40vw] min-h-[20vh] rounded-2xl border-2 border-gray-300 dark:border-gray-800 d bg-base-100 dark:bg-gray-900  text-black dark:text-white">
+            
+                <h1 class="row-start-1 justify-self-center self-center font-bold text-2xl">Iniciar Sesión</h1>   
+                 
+                <fieldset class="fieldset row-start-2">
+                        <label class="label">Correo electrónico</label>
+                        <input type="email" class="input w-full" placeholder="Correo electrónico"/>
+
+                        <label class="label">Contraseña</label>
+                        <input type="password" class="input w-full " placeholder="Contraseña"/>
+                </fieldset>
+                
+                <div class="justify-self-center flex flex-row">
+                    <p>¿No tienes una cuenta?</p>
+                    <a class="font-bold">Pulse aqui</a>
+                </div>
+
+                <div class="flex gap-10 justify-center">
+                    <button type="button" class="btn btn-primary  xl:w-xs">Aceptar</button>
+                    <button type="button" class="btn btn-primary  xl:w-xs">Cancelar</button>
+                </div>
+                
+
+                      
+                
+                
+            </section>
+
+        </main>
+
+    </body>
+
+
+
+</html>

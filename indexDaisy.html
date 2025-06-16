@@ -10,9 +10,9 @@
         <!--Viewport nos permite establecer la area visible de una página
         según el dispositivo en el que se visualice.-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="text/javascript" src="darkmode.js" defer></script>
         <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
         <link href="/stylesdaisy.css" rel="stylesheet" type="text/css">
+        <script src="/scripts/header.js" type="text/javascript" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <style type="text/tailwindcss">      
             @custom-variant dark (&:where(.dark, .dark *));
@@ -52,23 +52,7 @@
          <!--Header debe contener un logotipo y un menú de navegación
     a cada una de las secciones a definir (como si fuera un indice)-->
 
-        <header class="pl-10 pr-10 pt-1 min-w-screen bg-transparent backdrop-blur-xs flex flex-col items-center sm:flex-row sm:justify-between fixed top-0 z-1 dark:text-white" id="barraprincipal">     
-            <div class="flex" id="identidadempresa">
-                <div id="logotipoempresa"><img class="w-8 h-8 dark:invert" id="logo"src="images/favicons/favicon.ico" alt="Logotipo de CiberPulse Labs" ></div>
-                <div class="text-[1rem] font-bold" id="nombreempresa"><h2>CiberPulse Labs</h2></div>
-            </div>
-
-            <nav class="text-center" id="menunavegacion">      
-                <ul class="flex items-center list-none" role="list">
-                <li class="flex "><a><img class="p-[10px] self-stretch block w-10 h-10 cursor-pointer" id="switchtema" src="/images/icon_themes/sun.png" alt="Botón cambiar tema"></a></li>
-                <li class="flex"><a class="rounded-xl font-medium self-stretch p-[10px] no-underline hover:bg-sky-100 hover:text-blue-500 dark:hover:bg-sky-950" id="inicio" href="#iniciosesion" ">Iniciar sesión</a></li>
-                <li class="flex"><a class="rounded-xl font-medium self-stretch p-[10px] no-underline hover:bg-sky-100 hover:text-blue-500 dark:hover:bg-sky-950" id="inicio" href="#inicio" ">Inicio</a></li>
-                <li class="flex"><a class="rounded-xl font-medium self-stretch p-[10px] no-underline hover:bg-sky-100 hover:text-blue-500 dark:hover:bg-sky-950" id="nosotros" href="#nosotros" >Sobre Nosotros</a></li>
-                <li class="flex"><a class="rounded-xl font-medium self-stretch p-[10px] no-underline hover:bg-sky-100 hover:text-blue-500 dark:hover:bg-sky-950" id="servicios" href="#servicios" >Servicios</a></li>
-                </ul>
-            </nav>
-        </header>
-
+       <header id="header"></header>
         <main class="grid auto-rows-5 sm:auto-rows-4 auto-cols-1 sm:grid-cols-2 justify-center items-center text-center dark:bg-gray-950">
            
             <section class="min-h-screen self-center sm:pl-10 row-start-1 col-span-full flex flex-col sm:flex-row justify-center sm:justify-between dark:text-white" id="principal">
@@ -102,7 +86,7 @@
                     porque unen proactividad, conocimiento profundo y agilidad operativa en un único flujo continuo de valor.</p>
                 
                     <div class="card image-full">
-                        <figure><img src="/images/cards/monitoreo.jpg" alt="Imagen Monitoreo"></figure>    
+                        <figure><img class="rounded-4xl" src="/images/cards/monitoreo.jpg" alt="Imagen Monitoreo"></figure>    
                         <div class="card-body">
                             <h3 class="card-title text-2xl">Monitoreo</h3>
                             <p class="text-left">Implementamos sistemas de monitoreo inteligente que no solo recogen
@@ -116,7 +100,7 @@
                 </div>
             
                 <div class="card image-full">
-                    <figure><img src="/images/cards/analisis.jpg" alt="Imagen Análisis"></figure>    
+                    <figure><img class="rounded-4xl" src="/images/cards/analisis.jpg" alt="Imagen Análisis"></figure>    
                     <div class="card-body">
                         <h3 class="card-title text-2xl">Análisis</h3>
                         <p class="text-left"> El análisis de datos es el corazón de nuestra inteligencia digital. Utilizamos técnicas
@@ -129,7 +113,7 @@
                 </div>
             
                 <div class="card image-full">
-                    <figure><img src="/images/cards/respuesta.jpg" alt="Imagen Respuesta"></figure> 
+                    <figure><img class="rounded-4xl" src="/images/cards/respuesta.jpg" alt="Imagen Respuesta"></figure> 
                     <div class="card-body">
                         <h3 class="card-title text-2xl">Respuesta</h3>
                         <p class="text-left">Nuestra capacidad de respuesta se potencia con sistemas inteligentes capaces
@@ -153,15 +137,15 @@
                         A través de sus palabras descubrirás el impacto real y sostenible de nuestra inteligencia digital.</p>
             </section>
 
-            <section class="carousel pl-10 pr-10 rounded-box items-center row-start-4 sm:row-start-3 sm:col-start-2 " id="containerreviews">
+            <section class="carousel gap-x-20 rounded-box items-center row-start-4 sm:row-start-3 sm:col-start-2 " id="containerreviews">
                 
-                <div class="card pl-5 pt-5 carousel-item mx-auto border-2 dark:bg-gray-800 dark:border-gray-600">
+                <div class="card carrousel-item pt-5 pl-5 pb-10 pr-10 snap-center flex-shrink-0 w-full card border-2 dark:bg-gray-800 dark:border-gray-600">
                     <div class="card-title justify-stretch" id="review_persona">
                             <div class="flex flew-row items-center">
                                 <img class="w-[32px] h-[32px] mr-[16px]" id="review_foto" src="/images/avatars/profile.png" alt="Guillermo Diaz">
                                 <h3 class="text-xs base:text-sm lg:text-base font-medium dark:text-white" id="reviewnombre">Guillermo Diaz</h3>
                             </div>
-                            <p class="justify-end text-xs lg:text-base text-gray-500 dark:text-gray-300">5 de agosto de 2024</p>
+                            <p class= "text-xs lg:text-base text-gray-500 dark:text-gray-300">5 de agosto de 2024</p>
                     
                     </div>
                     
@@ -175,54 +159,66 @@
                     
                 </div>
 
-                <div class="card carousel-item mx-auto border-2 dark:bg-gray-800 dark:border-gray-600">
+                <div class="card carrousel-item pt-5 pl-5 pb-10 pr-10 snap-center flex-shrink-0 w-full card border-2 dark:bg-gray-800 dark:border-gray-600">
+                    <div class="card-title justify-stretch" id="review_persona">
+                            <div class="flex flew-row items-center">
+                                <img class="w-[32px] h-[32px] mr-[16px]" id="review_foto" src="/images/avatars/profile.png" alt="Guillermo Diaz">
+                                <h3 class="text-xs base:text-sm lg:text-base font-medium dark:text-white" id="reviewnombre">Guillermo Diaz</h3>
+                            </div>
+                            <p class= "text-xs lg:text-base text-gray-500 dark:text-gray-300">5 de agosto de 2024</p>
                     
-                    
-                    <div class="card-title" id="review_persona">
-                        <div class="flex flew-row items-center">
-                            <img class="w-[32px] h-[32px] mr-[16px]" id="review_foto" src="/images/avatars/profile.png" alt="Guillermo Diaz">
-                            <h3 class="text-xs base:text-sm lg:text-base font-medium dark:text-white" id="reviewnombre">Samuel de Luque</h3>
-                        </div>
-                        <p class="text-xs lg:text-base text-gray-500 dark:text-gray-300">5 de agosto de 2024</p>
                     </div>
+                    
+                    <div class="card_body">
 
-                        <div class="card-body">
-                            <p class="text-xs base:text-sm lg:text-base pt-5 row-start-2 col-span-full self-center text-left text-gray-700 dark:text-gray-100" id="review_comentario">Pasamos de tener “datos bonitos” a decisiones 
-                            accionables.<br>Súper transparentes con la metodología y cero humo técnico</p>
-                        </div>
+                        <p class="text-xs base:text-sm lg:text-base pt-5 row-start-2 col-span-full self-center text-left text-gray-700 dark:text-gray-100" id="review_comentario">Pasamos de tener “datos bonitos” a decisiones 
+                        accionables.<br>Súper transparentes con la metodología y cero humo técnico</p>
+
+                    </div>
+                    
                     
                 </div>
 
                 
-                <div class="card carousel-item mx-auto p-5 border-2 dark:bg-gray-800 dark:border-gray-600">
-
-                    <div class="card-title" id="review_persona">
-                        <div class="flex flew-row justify-between items-center">
-                            <img class="w-[32px] h-[32px] mr-[16px]" id="review_foto" src="/images/avatars/profile.png" alt="Guillermo Diaz">
-                            <h3 class="text-xs base:text-sm lg:text-base font-medium dark:text-white" id="reviewnombre">Ibai Llanos</h3>
-                        </div>
-                        <p class="text-xs lg:text-base text-gray-500 dark:text-gray-300">5 de agosto de 2024</p>
+                <div class="card carrousel-item pt-5 pl-5 pb-10 pr-10 snap-center flex-shrink-0 w-full card border-2 dark:bg-gray-800 dark:border-gray-600">
+                    <div class="card-title justify-stretch" id="review_persona">
+                            <div class="flex flew-row items-center">
+                                <img class="w-[32px] h-[32px] mr-[16px]" id="review_foto" src="/images/avatars/profile.png" alt="Samuel de Luque">
+                                <h3 class="text-xs base:text-sm lg:text-base font-medium dark:text-white" id="reviewnombre">Samuel de Luque</h3>
+                            </div>
+                            <p class= "text-xs lg:text-base text-gray-500 dark:text-gray-300">5 de agosto de 2024</p>
+                    
                     </div>
-                    <p class="text-xs base:text-sm lg:text-base pt-5 row-start-2 col-span-full self-center text-left text-gray-700 dark:text-gray-100" id="review_comentario">Pasamos de tener “datos bonitos” a decisiones 
+                    
+                    <div class="card_body">
+
+                        <p class="text-xs base:text-sm lg:text-base pt-5 row-start-2 col-span-full self-center text-left text-gray-700 dark:text-gray-100" id="review_comentario">Pasamos de tener “datos bonitos” a decisiones 
                         accionables.<br>Súper transparentes con la metodología y cero humo técnico</p>
+
+                    </div>
+                    
+                    
                 </div>
 
             </section>
 
             
-            <footer class="row-start 5 col-span-full sm:row-start-4 justify-center footer footer-center join">
-               <aside class= "dark:text-gray-300 join-item items-center pr-5">
-                    <p>Copyright © 2025 - All right reserved</p>
-               </aside> 
+            <footer class="pt-5 pb-5 row-start 5 col-span-full sm:row-start-4 footer footer-horizontal footer-center bg-base-100 dark:bg-gray-900 dark:text-white">
+               <aside class= dark:text-gray-300">
+                <img class="w-8 h-8 dark:invert" id="logo"src="images/favicons/favicon.ico" alt="Logotipo de CiberPulse Labs" ></div>
+                <p class="font-bold">CiberPulse Labs
+                <br> Ofreciendo soluciones innovadoras desde 2025
+                </p class="font-semibold">
+                <p>Copyright © 2025 - All right reserved</p>
+            </aside> 
 
-                <div class="join-item grid-flow-col gap-4 ">
-                <a href="mailto:info@smartwaystudio.com" target="_blank"><img class="w-[32px] h-[32px] dark:invert" id="email" src="/images/socialmedia_icons/email.png", alt="Icono Email"></a>
-                <a href="https://www.facebook.com/SmartWayStudio/" target="_blanK"><img class="w-[32px] h-[32px] dark:invert" id="facebook" src="/images/socialmedia_icons/facebook.png", alt="Icono Facebook"></a>
-                <a href="https://www.linkedin.com/company/smartway-studio/" target="_blank"><img class="w-[32px] h-[32px] dark:invert" id="linkedin" src="/images/socialmedia_icons/linkedin.png", alt="Icono LinkedIn"></a>
-                <a href="https://maps.app.goo.gl/eE3xwc5LchXdfH5r5" target="_blank"><img class="w-[32px] h-[32px] dark:invert" id="location" src="/images/socialmedia_icons/location.png", alt="Icono Ubicación"></a>
-                <a href="https://x.com/prestanitro" target="_blank"><img class="w-[32px] h-[32px] dark:invert" id="twitter" src="/images/socialmedia_icons/twitter.png", alt="Icono Twitter"></a>    
-            </div>
-       
+            <nav class="flex flex-row">
+                    <a href="mailto:info@smartwaystudio.com" target="_blank"><img class="w-[32px] h-[32px] dark:invert" id="email" src="/images/socialmedia_icons/email.png", alt="Icono Email"></a>
+                    <a href="https://www.facebook.com/SmartWayStudio/" target="_blanK"><img class="w-[32px] h-[32px] dark:invert" id="facebook" src="/images/socialmedia_icons/facebook.png", alt="Icono Facebook"></a>
+                    <a href="https://www.linkedin.com/company/smartway-studio/" target="_blank"><img class="w-[32px] h-[32px] dark:invert" id="linkedin" src="/images/socialmedia_icons/linkedin.png", alt="Icono LinkedIn"></a>
+                    <a href="https://maps.app.goo.gl/eE3xwc5LchXdfH5r5" target="_blank"><img class="w-[32px] h-[32px] dark:invert" id="location" src="/images/socialmedia_icons/location.png", alt="Icono Ubicación"></a>
+                    <a href="https://x.com/prestanitro" target="_blank"><img class="w-[32px] h-[32px] dark:invert" id="twitter" src="/images/socialmedia_icons/twitter.png", alt="Icono Twitter"></a>    
+            </nav>
 
             </footer>
 
